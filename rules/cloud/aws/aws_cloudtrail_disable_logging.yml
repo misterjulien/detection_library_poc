@@ -14,13 +14,8 @@ logsource:
     product: aws
     service: cloudtrail
 detection:
-    selection_source:
-        eventSource: cloudtrail.amazonaws.com
-        eventName:
-            - StopLogging
-            - UpdateTrail
-            - DeleteTrail
-    condition: selection_source
+    splunk: |
+        index=aws sourcetype=cloudtrail eventSource=cloudtrail.amazonaws.com eventName IN (StopLogging, UpdateTrail, DeleteTrail)
 falsepositives:
     - Valid change in a Trail
 level: medium
