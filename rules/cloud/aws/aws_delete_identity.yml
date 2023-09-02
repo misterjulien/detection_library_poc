@@ -14,10 +14,8 @@ logsource:
     product: aws
     service: cloudtrail
 detection:
-    selection:
-        eventSource: 'ses.amazonaws.com'
-        eventName: 'DeleteIdentity'
-    condition: selection
+    splunk: |
+        index=aws sourcetype=cloudtrail eventSource='ses.amazonaws.com' eventName='DeleteIdentity'
 falsepositives:
     - Unknown
 level: medium
