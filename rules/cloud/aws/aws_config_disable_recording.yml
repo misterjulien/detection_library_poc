@@ -12,12 +12,8 @@ logsource:
     product: aws
     service: cloudtrail
 detection:
-    selection_source:
-        eventSource: config.amazonaws.com
-        eventName:
-            - DeleteDeliveryChannel
-            - StopConfigurationRecorder
-    condition: selection_source
+    splunk: |
+        index=aws sourcetype=cloudtrail eventSource=config.amazonaws.com eventName IN (DeleteDeliveryChannel, StopConfigurationRecorder)
 falsepositives:
     - Valid change in AWS Config Service
 level: high
