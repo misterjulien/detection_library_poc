@@ -10,7 +10,7 @@ tags:
     - attack.t1562.001
 logsource:
     product: aws
-    service: cloudtrail
+    service: cloudtrail 
 detection:
     splunk: |
         index=aws sourcetype=cloudtrail eventSource=config.amazonaws.com eventName IN (DeleteDeliveryChannel, StopConfigurationRecorder)
