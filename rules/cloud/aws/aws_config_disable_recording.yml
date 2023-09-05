@@ -1,4 +1,4 @@
-title: AWS Config Disabling Channel/Recorder
+title: AWS Config Disabling Channel/Recorder 
 id: 07330162-dba1-4746-8121-a9647d49d297
 status: test
 description: Detects AWS Config Service disabling (taken from sigma/rules/cloud/aws/aws_config_disable_recording.yml)
